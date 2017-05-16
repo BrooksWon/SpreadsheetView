@@ -66,23 +66,7 @@ open class Cell: UIView {
     }
     public var borders = Borders(top: .none, bottom: .none, left: .none, right: .none) {
         didSet {
-            if case .none = borders.top {} else {
-                hasBorder = true
-                return
-            }
-            if case .none = borders.bottom {} else {
-                hasBorder = true
-                return
-            }
-            if case .none = borders.left {} else {
-                hasBorder = true
-                return
-            }
-            if case .none = borders.right {} else {
-                hasBorder = true
-                return
-            }
-            hasBorder = false
+            hasBorder = borders.top != .none || borders.bottom != .none || borders.left != .none || borders.right != .none
         }
     }
     var hasBorder = false
